@@ -1,0 +1,212 @@
+\documentclass[11pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,bottom=0.4in,left=0.5in,right=0.5in,top=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[expansion=false]{microtype}
+\usepackage[table,dvipsnames,svgnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{anyfontsize}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+
+% Icons: uses fontawesome5 (available on Overleaf). Falls back to plain text if missing.
+\IfFileExists{fontawesome5.sty}{%
+  \usepackage{fontawesome5}%
+}{%
+  \newcommand{\faPhone}{Ph:}%
+  \newcommand{\faEnvelope}{Email:}%
+  \newcommand{\faLinkedin}{LinkedIn:}%
+  \newcommand{\faGithub}{GitHub:}%
+  \newcommand{\faCode}{Codeforces:}%
+}
+
+\pagestyle{empty}
+\raggedbottom
+% Purple clickable link for the contact block
+\newcommand{\clink}[2]{\href{#1}{\textcolor{Purple}{#2}}}
+\setlength{\parindent}{0pt}
+% Right-aligned year at the end of a bullet
+\newcommand{\yr}[1]{\unskip\nobreak\hfill\mbox{\sl\small #1}}
+\emergencystretch=3em
+\hyphenpenalty 10000
+
+%%%%%%% Section Headers %%%%%%%%%%%%%%%%%%
+\newcommand{\xfill}[2][1ex]{%
+	\dimen0=#2\advance\dimen0 by #1
+	\leaders\hrule height \dimen0 depth -#1\hfill
+}
+\renewcommand{\section}[1]{%
+	\par\vspace{9pt}
+	{\color{Blue}{\Large\scshape\raggedright #1\xfill[0pt]{0.5pt}}}\par\vspace{3pt}
+}
+
+%%%%%%% Date Formatting (skips empty dates) %%%%%%%%
+\newcommand{\filldate}[1]{%
+	\def\tempdate{#1}%
+	\ifx\tempdate\empty\else\strut\hfill{\small\textit{(#1)}}\fi
+}
+
+%%%%%%% Subsection Headers %%%%%%%%%%%%%%%
+% \subsection{Title}{Program}{Date}{Club / Guide}
+\renewcommand{\subsection}[4]{%
+	\def\temp{#4}%
+	\par\vspace{5pt}
+	{%
+		\large
+		{\color{Green}\textbf{#1}} | {\sl #2}\filldate{#3}%
+		\ifx\temp\empty
+		\else
+		{\\[0.1em]\fontsize{11}{13.2}\selectfont\sl #4}%
+		\fi
+	}%
+}
+
+%%%%%%% Itemize formatting %%%%%%%%%%%%%%%
+\renewcommand\labelitemi{\small$\bullet$}
+\setlist[itemize]{itemsep=-0.5mm, topsep=3pt, leftmargin=15pt, after=\vspace{2pt}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Put the IITB logo (or a photo) in the same folder as logo.png; it is skipped if absent.
+\begin{center}
+\begin{tabular}{@{}p{2.6cm} p{8.6cm} p{5.8cm}@{}}
+  \IfFileExists{logo.png}{\raisebox{-0.5\height}{\includegraphics[width=2.3cm]{logo.png}}}{} &
+  \raisebox{-0.5\height}{\begin{tabular}{@{}l@{}}
+    {\LARGE\textbf{Sahil Mukesh Deo}} \\[2pt]
+    \textbf{B.Tech, Computer Science and Engineering} \\
+    \textbf{Indian Institute of Technology Bombay} \\
+  \end{tabular}} &
+  \raisebox{-0.5\height}{\begin{tabular}{@{}l@{}}
+    \faPhone\ +91-7498046893 \\
+    \faEnvelope\ 25b0991@iitb.ac.in \\
+    \faEnvelope\ sahildeo54@gmail.com \\
+    \faLinkedin\ \clink{https://www.linkedin.com/in/sahil-mukesh-deo}{sahil-mukesh-deo} \\
+    \faGithub\ \clink{https://github.com/Sahil-M-Deo}{Sahil-M-Deo} \\
+    \faCode\ \clink{https://codeforces.com/profile/Sahil_Deo}{Sahil\_Deo} \\
+  \end{tabular}}
+\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Education
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+    \begin{tabular}{ m{3.5cm} m{7.5cm} m{3cm} m{2cm} }
+      \hline
+      \textbf{Examination} & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
+      \hline
+      Graduation   & Indian Institute of Technology Bombay & 2025 -- present & 9.68 \\
+      Intermediate & Narayana e-Techno School              & 2025            & 96.8\% \\
+      Matriculation& Wisdom High International School       & 2023            & 99.2\% \\
+      \hline
+    \end{tabular}
+\end{center}
+
+Pursuing a {\bf Minor} in {\bf Statistics} \\
+{\bf Research interests:} randomised algorithms, probabilistic method, derandomisation, complexity classes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Scholastic Achievements
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Scholastic Achievements}
+
+\begin{itemize}
+    \item Secured \textbf{All India Rank 7} in \textbf{JEE Advanced} among 180,000\texttt{+} candidates \yr{2025}
+    \item Achieved \textbf{All India Rank 102} in \textbf{JEE Main} among 1,400,000\texttt{+} candidates \yr{2025}
+    \item Shortlisted for the \textbf{Aditya Birla Scholarship} interview \yr{2026}
+    \item Awarded the \textbf{Gold Medal} in the \textbf{Homi Bhabha Balvaidnyanik Competition} \yr{2019-20}
+    % VERIFY: participation figure is from the 2021 exam (2.4-3.9 lakh per class); 2018-19 official count not found
+    \item Secured \textbf{State Rank 5} in the \textbf{Maharashtra Scholarship Exam} among 200,000\texttt{+} students \yr{2018-19}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Olympiads & Competitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Olympiads \& Competitions}
+\begin{itemize}
+    \item Among the \textbf{top 600} of 10,000\texttt{+} participants to reach the in-person regionals of \textbf{IICPC QuantFest}, and secured \textbf{Rank 227} of 600 at the regionals \yr{2026}
+    \item Among the \textbf{top 300} of 40,000\texttt{+} candidates in the National Standard Examination in Physics (NSEP), selected for the \textbf{Indian National Physics Olympiad (INPhO)}, HBCSE \yr{2024-25}
+    \item Cleared the National Standard Examination in Astronomy (NSEA) among 40,000\texttt{+} candidates to qualify for the \textbf{Indian National Astronomy Olympiad (INAO)}, HBCSE \yr{2024-25}
+    \item Cleared the National Standard Examination in Chemistry (NSEC) among 40,000\texttt{+} candidates to qualify for the \textbf{Indian National Chemistry Olympiad (INChO)}, HBCSE \yr{2024-25}
+    \item Secured \textbf{1st position} in \textbf{Physics Bazinga} and \textbf{Maths Bazinga}, Maths \& Physics Club \yr{2025}
+    \item \textbf{3rd} in the quizzing round of \textbf{The Graviton Crucible}, IIT Bombay Edition \yr{2026}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Projects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Third argument is the date, e.g. {May - July 2026}. Left blank = not shown.
+\section{Professional Experience}
+
+\subsection{First-Year Trading and Technology Program (FTTP)}{Jane Street}{2026}{\textit{Hong Kong}}
+\begin{itemize}
+    \item Shortlisted for \textbf{Jane Street's} selective program for first-year STEM undergraduates
+    \item Attended classes on Jane Street's approach to \textbf{trading and technology} and competed in a \textbf{team-based mock trading simulation}
+    \item Developed \textbf{fair-value estimates} for a complex \textbf{live market simulation} with market inefficiencies
+\end{itemize}
+
+\section{Key Project | Research-Oriented}
+
+\subsection{\href{https://github.com/Sahil-M-Deo/Randomised-Algorithms}{\textcolor{Green}{Randomised Algorithms: A 137-Page Monograph}}}{Summer of Science}{2026}{\textit{Maths and Physics Club, IIT Bombay} \hfill \href{https://github.com/Sahil-M-Deo/Randomised-Algorithms}{\small\faGithub\ Sahil-M-Deo/Randomised-Algorithms}}
+\begin{itemize}
+    \item Authored a self-contained \textbf{137-page, 13-chapter book} in \LaTeX{} as an extension of the project report, with \textbf{6 appendices} on probability, concentration inequalities, limit theorems, finite fields and linear algebra, and \textbf{original end-of-chapter problem sets}
+    \item Covered \textbf{RP, ZPP \& BPP}, analysis of QuickSort and QuickSelect, \textbf{universal \& $k$-wise independent hashing}, \textbf{Freivalds' algorithm}, skip lists, treaps, Bloom filters, cuckoo hashing, \textbf{Miller--Rabin}, \textbf{Pollard's rho}, streaming (\textbf{Flajolet--Martin, HyperLogLog}), zero-knowledge proofs and \textbf{derandomisation}
+    \item Using the \textbf{probabilistic method}, designed Las Vegas algorithms for dominating set and max-cut; proved a success probability of at least $\frac{1}{m+1}$ for finding a cut with $\ge m/2$ edges, giving $\Theta(nm)$ expected time
+    \item \textbf{Conjectured} from large-scale simulation (exhaustive enumeration for small $n$, Monte Carlo sampling for large $n$) that the \textbf{5-cycle is the worst-case graph} for the randomised \textbf{max-cut} algorithm, with success probability $\frac{5}{16}$; this would tighten the bound to $\Theta(n+m)$ expected time
+    \item Proved via a \textbf{rank argument} on $\pm1$ orthogonal columns that generating $n$ pairwise-independent bits needs $\ge \log_2(n+1)$ truly random bits, tight for the \textbf{XOR construction}; derandomised max-cut via pairwise independence and the \textbf{method of conditional expectations}
+    \item Used \textbf{Monte Carlo sampling} (10,000 trials per $n$) to validate an \textbf{approximate-independence} assumption in a probabilistic construction, and to show the \textbf{union bound} is near-tight in practice
+\end{itemize}
+
+\section{Other Projects}
+
+\subsection{\href{https://github.com/Sahil-M-Deo/Deep-Chess}{\textcolor{Green}{Deep Chess}}}{Seasons of Code}{}{\textit{Web and Coding Club, IIT Bombay}}
+\begin{itemize}
+    \item Built a C\texttt{++} chess engine rated \textbf{2200}, benchmarked in matches against \textbf{Stockfish}, with \textbf{alpha-beta search}, iterative deepening, \textbf{quiescence search} and a \textbf{Zobrist-hashed transposition table}, using MVV-LVA and killer-move ordering
+    \item Trained an \textbf{NNUE evaluation network} in \textbf{PyTorch} with incremental accumulator updates for fast inference, benchmarked against the classical evaluation in \textbf{cutechess} tournaments
+\end{itemize}
+
+\subsection{\href{https://github.com/Sahil-M-Deo/WiDS}{\textcolor{Green}{Reinforcement Learning for Algorithmic Trading}}}{Winter in Data Science}{}{\textit{Analytics Club, IIT Bombay}}
+\begin{itemize}
+    \item Compared \textbf{greedy, $\varepsilon$-greedy and UCB} strategies on multi-armed bandits and modelled environments as \textbf{MDPs}
+    \item Implemented a \textbf{Q-Learning} stock trading agent on historical price data and evaluated it against a \textbf{buy-and-hold} baseline
+\end{itemize}
+
+\subsection{\href{https://github.com/Sahil-M-Deo/Shanmathi_Software_Labs}{\textcolor{Green}{Mini Game Hub}}}{Course Project: Software Systems Lab (CS108)}{}{}
+\begin{itemize}
+    \item Built a two-player hub in \textbf{Bash} and \textbf{Python/pygame} with Tic-Tac-Toe, Othello and Connect Four, time controls and persistent leaderboards
+    \item Implemented user authentication with \textbf{SHA-256} password hashing and account lockout after repeated failed attempts
+\end{itemize}
+
+\subsection{Game Theory}{Learners' Space}{}{\textit{Maths and Physics Club, IIT Bombay}}
+\begin{itemize}
+    \item Studied Nash equilibria, mixed strategies and the \textbf{minimax principle}, applied in the monograph to motivate randomisation against adversarial inputs
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Skills & Courses
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Technical Skills \& Courses}
+
+
+\begin{tabularx}{\textwidth}{ p{5.2cm} >{\raggedright\arraybackslash}X }
+	\textbf{Languages}               & C\texttt{++}, Python, Java, JavaScript, Bash, Verilog, Assembly, \LaTeX \\
+	\textbf{Tools}                   & Git, Make, Pygame, NumPy, Z3 Solver (CNF-SAT) \\
+	\textbf{Competitive Programming} & Rated \textbf{1654} on \href{https://codeforces.com/profile/Sahil_Deo}{Codeforces} \\
+	\textbf{Courses}                 & Computer Programming and Utilisation (CS101), Discrete Structures (CS105), Software Systems Lab (CS108) \\
+	\textbf{Ongoing Courses}         & Data Structures \& Algorithms (CS213)$^\dagger$, Digital Logic Design \& Computer Architecture (CS230)$^\dagger$, Logic for Computer Science (CS228), Data Analysis \& Interpretation (CS215) \\
+	                                 & {\small\sl $^\dagger$with corresponding lab (CS293, CS232)} \\
+\end{tabularx}
+
+\end{document}
